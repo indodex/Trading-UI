@@ -67,7 +67,7 @@
     @enableSubmit()
 
   @updateOrderBook = (url) ->
-    $.getJSON "https://coopex.market/markets/#{gon.market.id}.json", (market_data) =>
+    $.getJSON "http://kurchain.com/markets/#{gon.market.id}.json", (market_data) =>
       @trigger 'market::order_book::update', asks: market_data.gon_variables.asks, bids: market_data.gon_variables.bids
       gon.my_orders = market_data.gon_variables.my_orders
       @trigger 'order::wait::populate', orders: market_data.gon_variables.my_orders
